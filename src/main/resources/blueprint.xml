@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+<camelContext id="simple-context" xmlns="http://camel.apache.org/schema/spring">
+    <route id="Log1">
+        <from uri="timer:foo1?period=1000"/>
+        <log message="IQMSOFT Rocks!"/>
+        <to uri="mock:result"/>
+    </route>
+    <route id="Log2">
+        <from uri="timer:foo2?period=1000"/>
+        <log message="Greetings!"/>
+        <to uri="mock:result"/>
+    </route>
+    <route id="Log3">
+        <from uri="timer:foo3?period=1000"/>
+        <log message="Test Drive!"/>
+        <to uri="mock:result"/>
+    </route>
+</camelContext>
+
+</beans>
